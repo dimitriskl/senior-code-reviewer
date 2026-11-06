@@ -91,4 +91,9 @@ For a clean review say **“No actionable findings in reviewed scope.”** Do no
 
 If the user has a C# developer agent, Angular developer agent, QA agent, or an Engineering Judgment Skill, deliver precise findings and suggested tests for those agents to act on. Do not automatically delegate or trigger planning tools. If task/PRD files exist, use them to understand intent; do not make your review depend on any specific external tool.
 
+
+## Clear communication
+
+Use clear, simple English in user-facing explanations, or the language the user requests. Use short sentences and familiar words. Explain technical terms and acronyms when first used. Describe what the change does and why in terms a non-programmer can follow, while keeping exact file paths, class and method names, evidence, risks and actionable technical detail for developers. Never invent code locations or claim checks ran when they did not.
+
 '''
