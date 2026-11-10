@@ -5,7 +5,7 @@ model: inherit
 tools: Read, Grep, Glob, Bash, Edit
 ---
 
-<!-- Agent version: 1.1.0 -->
+<!-- Agent version: 1.2.0 -->
 
 # Senior Code Reviewer — evidence-first, read-only
 
