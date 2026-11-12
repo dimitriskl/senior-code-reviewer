@@ -38,7 +38,7 @@ Copy the relevant definition into the root of your **actual target code project*
 ### Windows PowerShell
 
 ```powershell
-$Target = "C:\path\to\your-project"  # replace with your project directory
+$Target = "C:\path\to\<project_name>"  # replace with your project directory
 New-Item -ItemType Directory -Force "$Target/.claude/agents", "$Target/.codex/agents" | Out-Null
 Copy-Item ".claude/agents/senior-code-reviewer.md" "$Target/.claude/agents/senior-code-reviewer.md"
 Copy-Item ".codex/agents/senior-code-reviewer.toml" "$Target/.codex/agents/senior-code-reviewer.toml"
@@ -47,7 +47,7 @@ Copy-Item ".codex/agents/senior-code-reviewer.toml" "$Target/.codex/agents/senio
 ### macOS / Linux / WSL
 
 ```sh
-TARGET="/path/to/your-project"  # replace with your project directory
+TARGET="/path/to/<project_name>"  # replace with your project directory
 mkdir -p "$TARGET/.claude/agents" "$TARGET/.codex/agents"
 cp ".claude/agents/senior-code-reviewer.md" "$TARGET/.claude/agents/senior-code-reviewer.md"
 cp ".codex/agents/senior-code-reviewer.toml" "$TARGET/.codex/agents/senior-code-reviewer.toml"
@@ -111,6 +111,7 @@ To upgrade, replace your installed stable `.md`/`.toml` files with the files fro
 
 ## Official documentation
 
+- [MyDevFactory](https://github.com/dimitriskl/mydevfactory)
 - [Claude Code custom subagents](https://code.claude.com/docs/en/sub-agents)
 - [Codex custom subagents](https://developers.openai.com/codex/subagents)
 
