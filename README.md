@@ -1,8 +1,8 @@
 # Senior Code Reviewer — Claude Code & Codex
 
-**Version:** `1.1.0` · **License:** [MIT](LICENSE) · **Maintainer:** [dimitriskl](https://github.com/dimitriskl)
+**Version:** `1.2.0` · **License:** [MIT](LICENSE) · **Maintainer:** [dimitriskl](https://github.com/dimitriskl)
 
-An evidence-first, non-editing code reviewer for .NET/Angular changes: correctness, security, compatibility, concurrency and high-impact tests.
+An evidence-first code reviewer for .NET/Angular changes: correctness, security, compatibility, concurrency and high-impact tests. It reports findings and does not edit the code it reviews.
 
 ## What problem does it solve?
 
@@ -18,11 +18,11 @@ This is an **agent definition**, not an executable app or a guarantee of correct
 | --- | --- |
 | [`.claude/agents/senior-code-reviewer.md`](.claude/agents/senior-code-reviewer.md) | Claude Code custom subagent (install-ready name). |
 | [`.codex/agents/senior-code-reviewer.toml`](.codex/agents/senior-code-reviewer.toml) | Codex custom subagent (install-ready name). |
-| [`releases/v1.1.0/senior-code-reviewer-v1.1.0.md`](releases/v1.1.0/senior-code-reviewer-v1.1.0.md) | Versioned Claude Code release snapshot. |
-| [`releases/v1.1.0/senior-code-reviewer-v1.1.0.toml`](releases/v1.1.0/senior-code-reviewer-v1.1.0.toml) | Versioned Codex release snapshot. |
+| [`releases/v1.2.0/senior-code-reviewer-v1.2.0.md`](releases/v1.2.0/senior-code-reviewer-v1.2.0.md) | Versioned Claude Code release snapshot. |
+| [`releases/v1.2.0/senior-code-reviewer-v1.2.0.toml`](releases/v1.2.0/senior-code-reviewer-v1.2.0.toml) | Versioned Codex release snapshot. |
 | [`VERSION`](VERSION) and [`CHANGELOG.md`](CHANGELOG.md) | Release version and history. |
 
-The `.md` and `.toml` files are **alternatives for different tools**, not two agents that must run together. Install one or both depending on what you use. All agent definitions in this release declare version `1.1.0` in a comment; the release snapshots also contain the version in their filename. **Do not rename the install-ready files to include a version suffix**: the stable filenames are intentional for reliable upgrades.
+The `.md` and `.toml` files are **alternatives for different tools**, not two agents that must run together. Install one or both depending on what you use. All agent definitions in this release declare version `1.2.0` in a comment; the release snapshots also contain the version in their filename. **Do not rename the install-ready files to include a version suffix**: the stable filenames are intentional for reliable upgrades.
 
 ## Installation — project scope (recommended)
 
@@ -38,7 +38,7 @@ Copy the relevant definition into the root of your **actual target code project*
 ### Windows PowerShell
 
 ```powershell
-$Target = "C:\path\to\your-project"  # replace with your project directory
+$Target = "C:\path\to\<project_name>"  # replace with your project directory
 New-Item -ItemType Directory -Force "$Target/.claude/agents", "$Target/.codex/agents" | Out-Null
 Copy-Item ".claude/agents/senior-code-reviewer.md" "$Target/.claude/agents/senior-code-reviewer.md"
 Copy-Item ".codex/agents/senior-code-reviewer.toml" "$Target/.codex/agents/senior-code-reviewer.toml"
@@ -47,7 +47,7 @@ Copy-Item ".codex/agents/senior-code-reviewer.toml" "$Target/.codex/agents/senio
 ### macOS / Linux / WSL
 
 ```sh
-TARGET="/path/to/your-project"  # replace with your project directory
+TARGET="/path/to/<project_name>"  # replace with your project directory
 mkdir -p "$TARGET/.claude/agents" "$TARGET/.codex/agents"
 cp ".claude/agents/senior-code-reviewer.md" "$TARGET/.claude/agents/senior-code-reviewer.md"
 cp ".codex/agents/senior-code-reviewer.toml" "$TARGET/.codex/agents/senior-code-reviewer.toml"
@@ -99,18 +99,19 @@ Codex normally discovers custom agents when they are configured in the recognize
 - Keep recommendations or edits within the requested scope and respect the repository's rules.
 - Do not invent tool access, test results, benchmarks, data or validation evidence.
 - Do not commit, push, deploy or change production resources without appropriate authorization.
-- The review policy is non-editing, but this is not a technical sandbox guarantee; configure read-only access on the parent session.
+- The reviewer does not edit the code it reviews. Inside a MyDevFactory workflow it may write its verdict, review notes and one history line to the slice file it was given, and nothing else. The Claude Code definition allows `Edit` and `Bash` for that reason, so these limits are instructions, not a technical sandbox: enforce read-only access through the host's permissions if you need it.
 
 Codex custom agents **inherit the parent's sandbox and approval policy**; the TOML file cannot force a new sandbox. Even a read-only instruction is behavioral rather than enforceable isolation.
 
 ## Updates and release policy
 
-The current release is **v1.1.0**. Versioned snapshots are immutable. For future updates, edit the stable `.md` and `.toml` source definitions, bump `VERSION`, document changes in `CHANGELOG.md`, add corresponding `releases/vX.Y.Z/` snapshots and create a Git tag `vX.Y.Z`. We use semantic versioning as a documentation convention (MAJOR = breaking instruction/behavior changes, MINOR = new capabilities, PATCH = corrections).
+The current release is **v1.2.0**. Versioned snapshots are immutable. For future updates, edit the stable `.md` and `.toml` source definitions, bump `VERSION`, document changes in `CHANGELOG.md`, add corresponding `releases/vX.Y.Z/` snapshots and create a Git tag `vX.Y.Z`. We use semantic versioning as a documentation convention (MAJOR = breaking instruction/behavior changes, MINOR = new capabilities, PATCH = corrections).
 
 To upgrade, replace your installed stable `.md`/`.toml` files with the files from the desired tagged release. Check diffs before replacing custom local modifications.
 
 ## Official documentation
 
+- [MyDevFactory](https://github.com/dimitriskl/mydevfactory)
 - [Claude Code custom subagents](https://code.claude.com/docs/en/sub-agents)
 - [Codex custom subagents](https://developers.openai.com/codex/subagents)
 

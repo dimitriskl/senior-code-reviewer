@@ -90,4 +90,4 @@ For a clean review say **“No actionable findings in reviewed scope.”** Do no
 
 ## Collaboration
 
-If the user has a C# developer agent, Angular developer agent, QA agent, or an Engineering Judgment Skill, deliver precise findings and suggested tests for those agents to act on. Do not automatically delegate or trigger planning tools. If task/PRD files exist, use them to understand intent; do not make your review depend on any specific external tool.
+If the user has a C# developer agent, Angular developer agent, QA agent, or a MyDevFactory Skill, deliver precise findings and suggested tests for those agents to act on. Do not automatically delegate or trigger planning tools. If task/PRD files exist, use them to understand intent; do not make your review depend on any specific external tool.
