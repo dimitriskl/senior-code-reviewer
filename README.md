@@ -99,7 +99,7 @@ Codex normally discovers custom agents when they are configured in the recognize
 - Keep recommendations or edits within the requested scope and respect the repository's rules.
 - Do not invent tool access, test results, benchmarks, data or validation evidence.
 - Do not commit, push, deploy or change production resources without appropriate authorization.
-- The reviewer does not edit the code it reviews. Inside an Engineering Judgment workflow it may write its verdict, review notes and one history line to the slice file it was given, and nothing else. The Claude Code definition allows `Edit` and `Bash` for that reason, so these limits are instructions, not a technical sandbox: enforce read-only access through the host's permissions if you need it.
+- The reviewer does not edit the code it reviews. Inside a MyDevFactory workflow it may write its verdict, review notes and one history line to the slice file it was given, and nothing else. The Claude Code definition allows `Edit` and `Bash` for that reason, so these limits are instructions, not a technical sandbox: enforce read-only access through the host's permissions if you need it.
 
 Codex custom agents **inherit the parent's sandbox and approval policy**; the TOML file cannot force a new sandbox. Even a read-only instruction is behavioral rather than enforceable isolation.
 
