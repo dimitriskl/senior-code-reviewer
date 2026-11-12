@@ -5,7 +5,8 @@ All notable changes to this agent are tracked here.
 ## [1.2.0] - 2026-11-10
 
 - Clear-communication rule for both definitions: explain findings in plain language, or in the language the user requests, define terms on first use, and keep exact paths, names, evidence and risks.
-- README permission wording: the reviewer does not edit the code it reviews. Inside an Engineering Judgment workflow it may write its verdict, review notes and one history line to the given slice file, and nothing else. Those limits are instructions, not a sandbox.
+- Current definitions name the slice-file workflow MyDevFactory. The reviewer may still write only its verdict, review notes and one history line to the given slice file.
+- README permission wording: the reviewer does not edit the code it reviews. Inside a MyDevFactory workflow it may write its verdict, review notes and one history line to the given slice file, and nothing else. Those limits are instructions, not a sandbox.
 
 ## [1.1.0] - 2026-11-04
 
