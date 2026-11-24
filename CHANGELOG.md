@@ -2,6 +2,13 @@
 
 All notable changes to this agent are tracked here.
 
+## [1.3.0] - 2026-11-24
+
+- Add "Review rounds and cost". Round 1 reports every blocking issue in one pass. In MyDevFactory slices each finding is `blocking` or `follow-up` (P0/P1 blocking, P2 only when it breaks the Contract, an acceptance criterion, correctness, security or data safety, P3 follow-up), and only blocking findings fail a part.
+- Re-reviews check only the previous findings and the fix range `<last reviewed sha>..<candidate sha>`; a new blocking finding outside it is allowed only for security or data loss. Measured MyDevFactory runs showed 3–4 full re-reviews per task.
+- Read diffs efficiently (`git diff --stat` first, targeted reads, no full builds or test suites) and keep notes short.
+- Slice-file review notes carry a round header with the reviewed range.
+
 ## [1.2.0] - 2026-11-10
 
 - Clear-communication rule for both definitions: explain findings in plain language, or in the language the user requests, define terms on first use, and keep exact paths, names, evidence and risks.
